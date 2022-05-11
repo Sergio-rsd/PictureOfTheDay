@@ -29,26 +29,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(NasaRepositoryImpl())
     }
-    /*
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this)[MainViewModel::class.java]
-    }
-    */
-/*
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-//            viewModel.requestPictureOfTheDay(dateInformation(0))
             checkDataFromRemoteSource(0)
         }
     }
@@ -132,7 +116,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     } else {
                         binding.img.load(it.url)
                     }
-//                    Log.d(TAG, "onViewCreated() called : $it")
                 }
             }
         }
