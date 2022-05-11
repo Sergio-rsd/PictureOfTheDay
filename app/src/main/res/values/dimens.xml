@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding">10dp</dimen>
+    <dimen name="main_text_margin">10dp</dimen>
+    <dimen name="radius_edit_text">15dp</dimen>
+</resources>

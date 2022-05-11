@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PictureDay</string>
+    <string name="helper_text_question">Что ищем?</string>
+    <string name="setting">Setting</string>
+    <string name="rocket_launch">Rocket Launch</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="before_yesterday">Позавчера</string>
+    <string name="empty_foto">Ссылка на фото пустая</string>
+    <string name="search_your_tube">www.youtube.com</string>
+    <string name="dialog_titile_see_on_youtube">Фото на youtube</string>
+    <string name="dialog_message_to_see">Хотите посмотреть?</string>
+    <string name="dialog_yes">Да</string>
+    <string name="dialog_no">Нет</string>
+</resources>
