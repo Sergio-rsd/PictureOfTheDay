@@ -72,21 +72,22 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         binding.clearTextButton.setEndIconOnClickListener {
             // TODO искать в wiki
-            binding.editSearch.setText("")
+            val searchText = binding.editSearch.text.toString()
+            val mainUriWiki = getString(R.string.url_wiki)
+            val searchUri = mainUriWiki.plus(searchText)
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(searchUri)))
+//            binding.editSearch.setText("")
 
         }
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.choice_now -> {
-//                    viewModel.requestPictureOfTheDay(dateInformation(0))
                     checkDataFromRemoteSource(0)
                 }
                 R.id.choice_yesterday -> {
-//                    viewModel.requestPictureOfTheDay(dateInformation(1))
                     checkDataFromRemoteSource(1)
                 }
                 R.id.choice_before_yesterday -> {
-//                    viewModel.requestPictureOfTheDay(dateInformation(2))
                     checkDataFromRemoteSource(2)
                 }
             }
