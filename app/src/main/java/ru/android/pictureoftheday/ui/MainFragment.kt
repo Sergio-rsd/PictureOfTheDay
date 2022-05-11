@@ -6,6 +6,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -37,10 +39,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = MainFragmentBinding.bind(view)
+
+        val myWebView: WebView = binding.webView
+        myWebView.settings.javaScriptEnabled = true
+        myWebView.webViewClient = WebViewClient()
+        binding.webBlock.visibility = View.GONE
 
         setBottomSheetBehavior(binding.bottomSheetContainer)
 
@@ -55,12 +63,12 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         })
 
         binding.clearTextButton.setEndIconOnClickListener {
-            // TODO искать в wiki
             val searchText = binding.editSearch.text.toString()
             val mainUriWiki = getString(R.string.url_wiki)
             val searchUri = mainUriWiki.plus(searchText)
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(searchUri)))
-//            binding.editSearch.setText("")
+            binding.webBlock.visibility = View.VISIBLE
+
+            myWebView.loadUrl(searchUri)
 
         }
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -90,6 +98,12 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
             viewModel.dataResponseSource.collect { dataArray ->
                 dataArray?.let {
+                    myWebView.loadUrl(getString(R.string.clear_web_view))
+                    binding.webBlock.visibility = View.GONE
+                    /*
+                    myWebView.clearCache(true)
+                    myWebView.clearHistory()
+*/
                     binding.bottomSheetDescriptionHeader.text = it.title
                     binding.bottomSheetDescription.text = it.explanation
 
@@ -142,7 +156,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     @SuppressLint("SimpleDateFormat")
     private fun dateInformation(minusDate: Int): String {
-        val currentDate = Calendar.getInstance()
+        TimeZone.setDefault(TimeZone.getTimeZone(getString(R.string.google_time)))
+        val currentDate = Calendar.getInstance(TimeZone.getTimeZone(getString(R.string.google_time)))
         currentDate.add(Calendar.DATE, -minusDate)
         val dateResult = currentDate.time
         return SimpleDateFormat("yyyy-MM-dd").format(dateResult)

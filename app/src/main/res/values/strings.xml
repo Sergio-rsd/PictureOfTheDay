@@ -14,4 +14,6 @@
     <string name="dialog_no">Нет</string>
     <string name="url_wiki">https://ru.wikipedia.org/wiki/</string>
     <string name="error_network">Network error</string>
+    <string name="clear_web_view">about:blank</string>
+    <string name="google_time">America/Los_Angeles</string>
 </resources>
