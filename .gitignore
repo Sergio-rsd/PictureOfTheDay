@@ -1,10 +1,10 @@
 *.iml
-/local.properties
+local.properties
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
-/apikey.properties
-/.idea/
-/gradle/
+apikey.properties
+.idea/
+.gradle/
