@@ -18,6 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.MainFragmentBinding
 import ru.android.pictureoftheday.domain.NasaRepositoryImpl
+import ru.android.pictureoftheday.util.hideKeyboard
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -63,12 +64,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         })
 
         binding.clearTextButton.setEndIconOnClickListener {
+            binding.webBlock.visibility = View.VISIBLE
             val searchText = binding.editSearch.text.toString()
             val mainUriWiki = getString(R.string.url_wiki)
             val searchUri = mainUriWiki.plus(searchText)
-            binding.webBlock.visibility = View.VISIBLE
 
             myWebView.loadUrl(searchUri)
+            binding.clearTextButton.hideKeyboard()
 
         }
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -100,35 +102,39 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 dataArray?.let {
                     myWebView.loadUrl(getString(R.string.clear_web_view))
                     binding.webBlock.visibility = View.GONE
-                    /*
+
                     myWebView.clearCache(true)
                     myWebView.clearHistory()
-*/
+
                     binding.bottomSheetDescriptionHeader.text = it.title
                     binding.bottomSheetDescription.text = it.explanation
 
-                    if (it.url.isEmpty()) {
-                        Toast.makeText(
-                            requireContext(),
-                            getString(R.string.empty_foto),
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
-                    } else if (it.url.contains(getString(R.string.search_your_tube))) {
-                        AlertDialog.Builder(requireContext())
-                            .setTitle(getString(R.string.dialog_titile_see_on_youtube))
-                            .setMessage(getString(R.string.dialog_message_to_see))
-                            .setPositiveButton(getString(R.string.dialog_yes)) { _, _ ->
-                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
-                            }
-                            .setNegativeButton(getString(R.string.dialog_no)) { dialog, _ ->
-                                dialog.dismiss()
-                                binding.img.load(it.url)
-                            }
-                            .create()
-                            .show()
-                    } else {
-                        binding.img.load(it.url)
+                    when {
+                        it.url.isEmpty() -> {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.empty_foto),
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
+                        it.url.contains(getString(R.string.search_your_tube)) -> {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle(getString(R.string.dialog_titile_see_on_youtube))
+                                .setMessage(getString(R.string.dialog_message_to_see))
+                                .setPositiveButton(getString(R.string.dialog_yes)) { _, _ ->
+                                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
+                                }
+                                .setNegativeButton(getString(R.string.dialog_no)) { dialog, _ ->
+                                    dialog.dismiss()
+                                    binding.img.load(it.url)
+                                }
+                                .create()
+                                .show()
+                        }
+                        else -> {
+                            binding.img.load(it.url)
+                        }
                     }
                 }
             }

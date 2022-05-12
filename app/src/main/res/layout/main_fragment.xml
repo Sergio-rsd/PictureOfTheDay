@@ -151,7 +151,7 @@
                 android:background="@color/bottom_sheet_color"
                 android:orientation="vertical"
                 android:visibility="gone"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <View
                     android:id="@+id/bottom_sheet_line_web"
@@ -164,7 +164,8 @@
                 <WebView
                     android:id="@+id/webView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/bottom_sheet_color" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
