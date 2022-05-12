@@ -65,6 +65,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         binding.clearTextButton.setEndIconOnClickListener {
             binding.webBlock.visibility = View.VISIBLE
+
             val searchText = binding.editSearch.text.toString()
             val mainUriWiki = getString(R.string.url_wiki)
             val searchUri = mainUriWiki.plus(searchText)
@@ -101,8 +102,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             viewModel.dataResponseSource.collect { dataArray ->
                 dataArray?.let {
                     myWebView.loadUrl(getString(R.string.clear_web_view))
-                    binding.webBlock.visibility = View.GONE
 
+                    binding.webBlock.visibility = View.GONE
                     myWebView.clearCache(true)
                     myWebView.clearHistory()
 
@@ -163,7 +164,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     @SuppressLint("SimpleDateFormat")
     private fun dateInformation(minusDate: Int): String {
         TimeZone.setDefault(TimeZone.getTimeZone(getString(R.string.google_time)))
-        val currentDate = Calendar.getInstance(TimeZone.getTimeZone(getString(R.string.google_time)))
+        val currentDate =
+            Calendar.getInstance(TimeZone.getTimeZone(getString(R.string.google_time)))
         currentDate.add(Calendar.DATE, -minusDate)
         val dateResult = currentDate.time
         return SimpleDateFormat("yyyy-MM-dd").format(dateResult)
