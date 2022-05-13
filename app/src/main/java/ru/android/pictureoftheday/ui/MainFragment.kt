@@ -64,14 +64,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         })
 
         binding.clearTextButton.setEndIconOnClickListener {
+//            binding.bottomSheetContainer.visibility=View.GONE
+
             binding.webBlock.visibility = View.VISIBLE
 
             val searchText = binding.editSearch.text.toString()
             val mainUriWiki = getString(R.string.url_wiki)
             val searchUri = mainUriWiki.plus(searchText)
 
-            myWebView.loadUrl(searchUri)
             binding.clearTextButton.hideKeyboard()
+            myWebView.loadUrl(searchUri)
 
         }
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -102,8 +104,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             viewModel.dataResponseSource.collect { dataArray ->
                 dataArray?.let {
                     myWebView.loadUrl(getString(R.string.clear_web_view))
-
                     binding.webBlock.visibility = View.GONE
+
+//                    binding.bottomSheetContainer.visibility=View.VISIBLE
+
                     myWebView.clearCache(true)
                     myWebView.clearHistory()
 
