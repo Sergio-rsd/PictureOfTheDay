@@ -125,7 +125,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                         }
                         it.url.contains(getString(R.string.search_your_tube)) -> {
                             AlertDialog.Builder(requireContext())
-                                .setTitle(getString(R.string.dialog_titile_see_on_youtube))
+                                .setTitle(getString(R.string.dialog_title_see_on_youtube))
                                 .setMessage(getString(R.string.dialog_message_to_see))
                                 .setPositiveButton(getString(R.string.dialog_yes)) { _, _ ->
                                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
