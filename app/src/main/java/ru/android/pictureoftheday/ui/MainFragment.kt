@@ -64,7 +64,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         })
 
         binding.clearTextButton.setEndIconOnClickListener {
-//            binding.bottomSheetContainer.visibility=View.GONE
 
             binding.webBlock.visibility = View.VISIBLE
 
@@ -76,6 +75,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             myWebView.loadUrl(searchUri)
 
         }
+
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.choice_now -> {
@@ -118,7 +118,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                         it.url.isEmpty() -> {
                             Toast.makeText(
                                 requireContext(),
-                                getString(R.string.empty_foto),
+                                getString(R.string.empty_photo),
                                 Toast.LENGTH_LONG
                             )
                                 .show()

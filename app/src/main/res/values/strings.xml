@@ -6,7 +6,7 @@
     <string name="today">Сегодня</string>
     <string name="yesterday">Вчера</string>
     <string name="before_yesterday">Позавчера</string>
-    <string name="empty_foto">Ссылка на фото пустая</string>
+    <string name="empty_photo">Ссылка на фото пустая</string>
     <string name="search_your_tube">www.youtube.com</string>
     <string name="dialog_title_see_on_youtube">Фото на youtube</string>
     <string name="dialog_message_to_see">Хотите посмотреть?</string>
@@ -16,4 +16,5 @@
     <string name="error_network">Network error</string>
     <string name="clear_web_view">about:blank</string>
     <string name="google_time">America/Los_Angeles</string>
+    <string name="current_photo_description">Current photo</string>
 </resources>

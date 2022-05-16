@@ -1,7 +1,7 @@
 *.iml
 local.properties
 .DS_Store
-/.idea
+.idea/
 /build
 /captures
 .externalNativeBuild
@@ -9,4 +9,4 @@ local.properties
 apikey.properties
 *.properties
 .gradle/
-/.idea/
+/.idea

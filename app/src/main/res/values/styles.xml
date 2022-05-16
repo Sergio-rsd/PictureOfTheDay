@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HookView">
+        <item name="android:layout_width">@dimen/hook_width</item>
+        <item name="android:layout_height">@dimen/hook_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/hook_margin_top</item>
+        <item name="android:background">@color/bottom_sheet_line_color</item>
+    </style>
+
+</resources>
