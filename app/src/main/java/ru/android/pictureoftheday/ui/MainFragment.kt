@@ -2,10 +2,13 @@ package ru.android.pictureoftheday.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -18,7 +21,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.MainFragmentBinding
 import ru.android.pictureoftheday.domain.NasaRepositoryImpl
+import ru.android.pictureoftheday.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.hideKeyboard
+import ru.android.pictureoftheday.util.recreateFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,6 +46,18 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val getTheme = activity?.getSharedPreferences(THEME_STATUS, Context.MODE_PRIVATE)
+            ?.getInt(IS_THEME_STATUS, 0)
+        if (getTheme != null) {
+            activity?.setTheme(getTheme)
+        }
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -65,6 +83,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         binding.clearTextButton.setEndIconOnClickListener {
 
+            binding.editSearch.setText("")
+
+        }
+        binding.searchWiki.setOnClickListener {
             binding.webBlock.visibility = View.VISIBLE
 
             val searchText = binding.editSearch.text.toString()
@@ -73,7 +95,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
             binding.clearTextButton.hideKeyboard()
             myWebView.loadUrl(searchUri)
-
         }
 
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -148,8 +169,14 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         binding.bottomAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.setting -> {
-                    Toast.makeText(requireContext(), "Setting", Toast.LENGTH_LONG).show()
-                    true
+                    requireActivity().supportFragmentManager.apply {
+                        beginTransaction()
+                            .replace(R.id.container, SettingThemeFragment.newInstance())
+                            .addToBackStack("")
+                            .commitAllowingStateLoss()
+                    }
+//                    recreateFragment(this@MainFragment, requireActivity())
+                     true
                 }
                 R.id.action -> {
                     Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()

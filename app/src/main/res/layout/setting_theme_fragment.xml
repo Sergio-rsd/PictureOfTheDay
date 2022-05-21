@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundMain"
+        android:padding="@dimen/setting_fragment_padding">
+        <!--android:backgroundTint="?backgroundMain"-->
+        <RadioGroup
+            android:id="@+id/radio_switch_main_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/switch_default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_default" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/switch_universe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_universe" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/switch_mars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_mars" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/switch_moon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_moon" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="?attr/bottomAppBar"
+        app:menu="@menu/menu_bottom_appbar"
+        app:navigationIcon="@drawable/ic_menu_show" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

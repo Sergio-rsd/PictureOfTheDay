@@ -10,5 +10,31 @@
     <color name="bottom_sheet_color">#E9E9F1</color>
     <color name="bottom_sheet_line_color">#663b4351</color>
     <color name="bottom_menu_color">#599FF5</color>
-
+    <!--universe color-->
+    <color name="universe_primaryColor">#29b6f6</color>
+    <color name="universe_primaryLightColor">#73e8ff</color>
+    <color name="universe_primaryDarkColor">#0086c3</color>
+    <color name="universe_secondaryColor">#b3e5fc</color>
+    <color name="universe_secondaryLightColor">#e6ffff</color>
+    <color name="universe_secondaryDarkColor">#82b3c9</color>
+    <color name="universe_primaryTextColor">#000000</color>
+    <color name="universe_secondaryTextColor">#000000</color>
+    <!--mars color-->
+    <color name="mars_primaryColor">#ffab91</color>
+    <color name="mars_primaryLightColor">#ffddc1</color>
+    <color name="mars_primaryDarkColor">#c97b63</color>
+    <color name="mars_secondaryColor">#ffccbc</color>
+    <color name="mars_secondaryLightColor">#ffffee</color>
+    <color name="mars_secondaryDarkColor">#cb9b8c</color>
+    <color name="mars_primaryTextColor">#000000</color>
+    <color name="mars_secondaryTextColor">#000000</color>
+    <!--moon color-->
+    <color name="moon_primaryColor">#e0e0e0</color>
+    <color name="moon_primaryLightColor">#ffffff</color>
+    <color name="moon_primaryDarkColor">#aeaeae</color>
+    <color name="moon_secondaryColor">#eceff1</color>
+    <color name="moon_secondaryLightColor">#ffffff</color>
+    <color name="moon_secondaryDarkColor">#babdbe</color>
+    <color name="moon_primaryTextColor">#000000</color>
+    <color name="moon_secondaryTextColor">#000000</color>
 </resources>
