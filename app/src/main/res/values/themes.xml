@@ -14,41 +14,52 @@
         <!-- Customize your theme here. -->
         <item name="bottomAppBar">@color/bottom_menu_color</item>
         <item name="backgroundMain">@color/white</item>
+        <item name="colorSurface">@color/design_default_color_surface</item>
+        <item name="android:fontFamily">?attr/fontFamily</item>
+        <item name="fontFamily">?attr/fontFamily</item>
+<!--        <item name="android:windowActionBar">false</item>-->
+<!--        <item name="windowActionModeOverlay">true</item>-->
+<!--        parent="Theme.MaterialComponents.DayNight.DarkActionBar"-->
     </style>
 
-    <style name="Theme.PictureOfTheDay.Universe">
+    <style name="Theme.PictureOfTheDay.Universe" >
         <item name="colorPrimary">@color/universe_primaryColor</item>
         <item name="colorPrimaryVariant">@color/universe_primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/universe_primaryLightColor</item>
+<!--        <item name="colorOnPrimary">@color/universe_secondaryLightColor</item>-->
+        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/universe_secondaryColor</item>
         <item name="colorSecondaryVariant">@color/universe_secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/universe_secondaryTextColor</item>
         <item name="android:statusBarColor">@color/universe_primaryDarkColor</item>
-        <item name="bottomAppBar">@color/universe_primaryDarkColor</item>
-        <item name="backgroundMain">@color/universe_secondaryLightColor</item>
+        <item name="bottomAppBar">@color/universe_primaryColor</item>
+        <item name="backgroundMain">@color/universe_background_main</item>
+        <item name="colorSurface">@color/universe_secondaryColor</item>
+        <item name="fontFamily">@font/bona_nova</item>
     </style>
 
-    <style name="Theme.PictureOfTheDay.Mars">
+    <style name="Theme.PictureOfTheDay.Mars" >
         <item name="colorPrimary">@color/mars_primaryColor</item>
         <item name="colorPrimaryVariant">@color/mars_primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/mars_primaryLightColor</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/mars_secondaryColor</item>
         <item name="colorSecondaryVariant">@color/mars_secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/mars_secondaryTextColor</item>
         <item name="android:statusBarColor">@color/mars_primaryDarkColor</item>
         <item name="bottomAppBar">@color/mars_primaryDarkColor</item>
-        <item name="backgroundMain">@color/mars_primaryLightColor</item>
+        <item name="backgroundMain">@color/mars_background_main</item>
+        <item name="colorSurface">@color/mars_secondaryLightColor</item>
     </style>
 
     <style name="Theme.PictureOfTheDay.Moon">
         <item name="colorPrimary">@color/moon_primaryColor</item>
         <item name="colorPrimaryVariant">@color/moon_primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/moon_primaryLightColor</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/moon_secondaryColor</item>
         <item name="colorSecondaryVariant">@color/moon_secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/moon_secondaryTextColor</item>
         <item name="android:statusBarColor">@color/moon_primaryDarkColor</item>
         <item name="bottomAppBar">@color/moon_primaryDarkColor</item>
-        <item name="backgroundMain">@color/moon_secondaryColor</item>
+        <item name="backgroundMain">@color/moon_background_main</item>
+        <item name="colorSurface">@color/moon_background_main</item>
     </style>
 </resources>

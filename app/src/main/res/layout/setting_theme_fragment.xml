@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="?attr/backgroundMain"
         android:padding="@dimen/setting_fragment_padding">
-        <!--android:backgroundTint="?backgroundMain"-->
+
         <RadioGroup
             android:id="@+id/radio_switch_main_group"
             android:layout_width="match_parent"

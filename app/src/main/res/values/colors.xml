@@ -19,6 +19,7 @@
     <color name="universe_secondaryDarkColor">#82b3c9</color>
     <color name="universe_primaryTextColor">#000000</color>
     <color name="universe_secondaryTextColor">#000000</color>
+    <color name="universe_background_main">#ECF0FA</color>
     <!--mars color-->
     <color name="mars_primaryColor">#ffab91</color>
     <color name="mars_primaryLightColor">#ffddc1</color>
@@ -28,7 +29,8 @@
     <color name="mars_secondaryDarkColor">#cb9b8c</color>
     <color name="mars_primaryTextColor">#000000</color>
     <color name="mars_secondaryTextColor">#000000</color>
-    <!--moon color-->
+    <color name="mars_background_main">#FBF3E6</color>
+        <!--moon color-->
     <color name="moon_primaryColor">#e0e0e0</color>
     <color name="moon_primaryLightColor">#ffffff</color>
     <color name="moon_primaryDarkColor">#aeaeae</color>
@@ -37,4 +39,5 @@
     <color name="moon_secondaryDarkColor">#babdbe</color>
     <color name="moon_primaryTextColor">#000000</color>
     <color name="moon_secondaryTextColor">#000000</color>
+    <color name="moon_background_main">#F6F7FD</color>
 </resources>

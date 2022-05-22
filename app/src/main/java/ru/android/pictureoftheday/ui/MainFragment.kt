@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,7 +25,6 @@ import ru.android.pictureoftheday.domain.NasaRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.hideKeyboard
-import ru.android.pictureoftheday.util.recreateFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,11 +53,16 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     ): View? {
         val getTheme = activity?.getSharedPreferences(THEME_STATUS, Context.MODE_PRIVATE)
             ?.getInt(IS_THEME_STATUS, 0)
+
         if (getTheme != null) {
             activity?.setTheme(getTheme)
         }
-        return super.onCreateView(inflater, container, savedInstanceState)
+
+        val themedCurrent = getTheme?.let { ContextThemeWrapper(context, it) }
+        return LayoutInflater.from(themedCurrent).inflate(R.layout.main_fragment, container, false)
+//        return super.onCreateView(inflater, container, savedInstanceState)
     }
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -176,7 +181,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                             .commitAllowingStateLoss()
                     }
 //                    recreateFragment(this@MainFragment, requireActivity())
-                     true
+                    true
                 }
                 R.id.action -> {
                     Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()
