@@ -24,29 +24,6 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
     }
 
     private var savedTheme: Int? = null
-/*
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-*/
-/*
-
-        savedInstanceState?.getInt(KEY_THEME, -1)
-            ?.takeIf {
-                it != -1
-            }?.let {
-                requireActivity().setTheme(it)
-            }
-        Log.d(TAG, "onCreate() called with: savedInstanceState = $savedInstanceState")
-        val themeCurrent = getThemeApp()
-        requireActivity().setTheme(themeCurrent!!)
-        Log.d(TAG, "onCreate() called with: themeCurrent = $themeCurrent")
-        requireActivity().setContentView(R.layout.main_activity)
-*//*
-
-
-    }
-*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,13 +31,6 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
         savedInstanceState: Bundle?
     ): View? {
         activity?.setTheme(getThemeApp()!!)
-//        Log.d(
-//            TAG,
-//            "onCreateView() called with: ${getThemeApp()}"
-//        )
-
-//        activity?.window?.navigationBarColor = Color.RED
-//        activity?.window?.statusBarColor = Color.RED
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -85,8 +55,6 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
 
-//                    Log.d(TAG, "Press default = $savedTheme")
-
                 }
                 R.id.switch_universe -> {
                     savedTheme = R.style.Theme_PictureOfTheDay_Universe
@@ -94,39 +62,22 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
 
-//                    Log.d(TAG, "Press universe = $savedTheme")
                 }
                 R.id.switch_mars -> {
                     savedTheme = R.style.Theme_PictureOfTheDay_Mars
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
-//                    Log.d(TAG, "Press mars = $savedTheme")
                 }
                 R.id.switch_moon -> {
                     savedTheme = R.style.Theme_PictureOfTheDay_Moon
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
-//                    Log.d(TAG, "Press moon = $savedTheme")
                 }
             }
         }
     }
-/*
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        */
-/*
-        savedTheme?.let {
-            outState.putInt(KEY_THEME, it)
-        }
-        Log.d(TAG, "onSaveInstanceState() called with: outState = $savedTheme")
-        *//*
-
-    }
-*/
 
     private fun saveThemeApp(theme: Int) {
         activity?.let {
