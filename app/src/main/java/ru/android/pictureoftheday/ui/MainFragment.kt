@@ -25,6 +25,8 @@ import ru.android.pictureoftheday.domain.NasaRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.hideKeyboard
+import ru.android.pictureoftheday.viewmodel.MainViewModel
+import ru.android.pictureoftheday.viewmodel.MainViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -184,7 +186,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     true
                 }
                 R.id.action -> {
-                    Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()
+//                    Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()
+                    requireActivity().supportFragmentManager.apply {
+                        beginTransaction()
+                            .replace(R.id.container, EarthFragment())
+                            .addToBackStack("")
+                            .commitAllowingStateLoss()
+                    }
                     true
                 }
                 else -> true

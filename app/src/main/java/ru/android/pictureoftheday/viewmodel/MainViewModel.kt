@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.ui
+package ru.android.pictureoftheday.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
