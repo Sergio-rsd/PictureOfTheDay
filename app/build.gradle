@@ -64,6 +64,8 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
 
     implementation 'io.coil-kt:coil:2.0.0'
+    // обработка json аннотации
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
     // dotes in viewpager from https://github.com/tommybuonomo/dotsindicator
 //    implementation 'com.tbuonomo:dotsindicator:4.3'
 }

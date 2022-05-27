@@ -5,7 +5,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface EarthApi {
-    @GET("EPIC/api/natural/date/{dateChoice}")
+    @GET("api/natural/date/{dateChoice}")
     suspend fun pictureOfEarth(
         @Path("dateChoice") date: String,
         @Query("api_key") key: String

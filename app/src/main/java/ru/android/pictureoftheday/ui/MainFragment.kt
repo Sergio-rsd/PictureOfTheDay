@@ -24,6 +24,7 @@ import ru.android.pictureoftheday.databinding.MainFragmentBinding
 import ru.android.pictureoftheday.domain.NasaRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
+import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.util.hideKeyboard
 import ru.android.pictureoftheday.viewmodel.MainViewModel
 import ru.android.pictureoftheday.viewmodel.MainViewModelFactory
@@ -134,8 +135,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     myWebView.loadUrl(getString(R.string.clear_web_view))
                     binding.webBlock.visibility = View.GONE
 
-//                    binding.bottomSheetContainer.visibility=View.VISIBLE
-
                     myWebView.clearCache(true)
                     myWebView.clearHistory()
 
@@ -189,7 +188,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 //                    Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()
                     requireActivity().supportFragmentManager.apply {
                         beginTransaction()
-                            .replace(R.id.container, EarthFragment())
+                            .replace(R.id.container, EarthFragment.newInstance())
                             .addToBackStack("")
                             .commitAllowingStateLoss()
                     }
@@ -204,6 +203,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         behavior = BottomSheetBehavior.from(bottomSheet)
         behavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
+/*
 
     @SuppressLint("SimpleDateFormat")
     private fun dateInformation(minusDate: Int): String {
@@ -214,6 +214,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         val dateResult = currentDate.time
         return SimpleDateFormat("yyyy-MM-dd").format(dateResult)
     }
+*/
 
     private fun checkDataFromRemoteSource(dateMinus: Int) {
         viewModel.requestPictureOfTheDay(dateInformation(dateMinus))

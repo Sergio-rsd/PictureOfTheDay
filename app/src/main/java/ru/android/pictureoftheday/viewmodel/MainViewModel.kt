@@ -24,7 +24,6 @@ class MainViewModel(private val repository: NasaRepository) : ViewModel() {
         MutableStateFlow(null)
     val dataResponseSource: MutableStateFlow<PictureOfTheDayResponse?> = _dataResponseSource
 
-
     fun requestPictureOfTheDay(date: String) {
 
         _loading.value = true
