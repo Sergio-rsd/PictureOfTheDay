@@ -29,13 +29,6 @@ class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
         MutableStateFlow(null)
     val dataResponseSourceOfEarth: MutableStateFlow<PictureOfEarthResponse?> =
         _dataResponseSourceOfEarth
-/*
-
-    private val _dataResponseOfEarthOnDay: MutableStateFlow<PictureOfEarthOnDateResponse?> =
-        MutableStateFlow(null)
-    val dataResponseOfEarthOnDay: MutableStateFlow<PictureOfEarthOnDateResponse?> =
-        _dataResponseOfEarthOnDay
-*/
 
     fun requestPictureOfEarth(date: String) {
 
@@ -43,26 +36,14 @@ class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
 
         viewModelScope.launch {
             try {
-                val listOfCondition: PictureOfEarthResponse =
-                    repository.pictureOfEarth(date).apply {
-                        listOfEarth
-                    }
+                val listOfCondition: PictureOfEarthResponse = repository.pictureOfEarth(date)
+
+                for (arrayCondition in listOfCondition) {
+                    arrayCondition.urlImage = constructUrlImageEarth(date, arrayCondition.imageName)
+                }
+//                Log.d(TAG, "requestPictureOfEarth() called: $listOfCondition")
+
                 _dataResponseSourceOfEarth.emit(listOfCondition)
-
-                val imageEarth = listOfCondition.listOfEarth[0].imageName
-//                val imageEarth = listOfCondition.listOfEarth[0]
-//                val urlImageEarth = constructUrlImageEarth(date, imageEarth)
-                Log.d(TAG, "requestPictureOfEarth() called: $imageEarth")
-
-/*
-                val dataEarthOfDate: PictureOfEarthOnDateResponse =
-                    repository.pictureOfEarthOnDate(yearDate, monthDate, dayDate, imageEarth)
-                        .apply {
-                            caption
-                            imageName
-                            date
-                        }
-                */
 
             } catch (e: IOException) {
                 _error.emit(NETWORK_ERROR)

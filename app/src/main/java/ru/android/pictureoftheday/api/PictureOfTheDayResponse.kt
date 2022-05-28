@@ -16,8 +16,8 @@ data class PictureOfTheDayResponse(
     val hdurl: String,
     @SerializedName("media_type")
     val mediaType: String,
-//    @SerializedName("service_version")
-//    val serviceVersion: String,
+    @SerializedName("service_version")
+    val serviceVersion: String,
     @SerializedName("title")
     val title: String,
     @SerializedName("url")

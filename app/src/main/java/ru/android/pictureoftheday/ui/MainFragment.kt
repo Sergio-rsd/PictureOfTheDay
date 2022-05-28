@@ -45,6 +45,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
+//            checkDataFromRemoteSource(0)
             checkDataFromRemoteSource(0)
         }
     }
@@ -108,13 +109,15 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.choice_now -> {
+                    // TODO проверить на 404
+//                    checkDataFromRemoteSource(0)
                     checkDataFromRemoteSource(0)
                 }
                 R.id.choice_yesterday -> {
                     checkDataFromRemoteSource(1)
                 }
                 R.id.choice_before_yesterday -> {
-                    checkDataFromRemoteSource(2)
+                    checkDataFromRemoteSource(3)
                 }
             }
         }

@@ -2,6 +2,7 @@ package ru.android.pictureoftheday.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,12 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
+import coil.load
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.EarthFragmentBinding
 import ru.android.pictureoftheday.domain.EarthRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.util.TAG
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.viewmodel.EarthViewModel
@@ -51,7 +54,6 @@ class EarthFragment : Fragment(R.layout.earth_fragment) {
 
         val themedCurrent = getTheme?.let { ContextThemeWrapper(context, it) }
         return LayoutInflater.from(themedCurrent).inflate(R.layout.earth_fragment, container, false)
-//        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,9 +74,12 @@ class EarthFragment : Fragment(R.layout.earth_fragment) {
 //            viewModel.dataResponseOfEarthOnDay.collect { dataEarthArray ->
             viewModel.dataResponseSourceOfEarth.collect { dataEarthArray ->
                 dataEarthArray?.let {
-                    binding.captionText.text = it.listOfEarth[0].caption
+//                    binding.captionText.text = it.listOfEarth[0].caption
+//                    Log.d(TAG, "PATH for IMAGE called ${it[0].urlImage}")
 //                    binding.captionText.text = it.listOfEarth[0]
-//                    binding.imageEarth.load(it.imageName)
+
+                    binding.captionText.text = it[0].caption
+                    binding.imageEarth.load(it[0].urlImage)
                 }
             }
         }

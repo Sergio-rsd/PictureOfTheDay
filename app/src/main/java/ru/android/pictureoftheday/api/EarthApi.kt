@@ -10,7 +10,7 @@ interface EarthApi {
         @Path("dateChoice") date: String,
         @Query("api_key") key: String
     ): PictureOfEarthResponse
-
+   /*
     @GET("EPIC/archive/natural/{yearChoice}/{monthChoice}/{dayChoice}/png/{image}.png")
     suspend fun pictureOfEarthOnDate(
         @Path("yearChoice") year:String,
@@ -19,4 +19,6 @@ interface EarthApi {
         @Path("image") imageName: String,
         @Query("api_key") key: String
     ) : PictureOfEarthOnDateResponse
+
+    */
 }

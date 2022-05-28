@@ -1,13 +1,17 @@
 package ru.android.pictureoftheday.api
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import java.util.*
-import kotlin.collections.ArrayList
+import com.google.gson.annotations.SerializedName
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class PictureOfEarthResponse(
-//    val listOfEarth: MutableList<PictureOfEarthOnDateResponse> = LinkedList<PictureOfEarthOnDateResponse>()
-    val listOfEarth: ArrayList<PictureOfEarthOnDateResponse>
-//    = LinkedList<PictureOfEarthOnDateResponse>()
-//    val listOfEarth: List<String>
-)
+class PictureOfEarthResponse : ArrayList<PictureOfEarthResponse.PictureOfEarthOnDateResponse>() {
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    data class PictureOfEarthOnDateResponse(
+        val identifier: String,
+        val caption: String,
+        @SerializedName("image")
+        val imageName: String,
+        val date: String,
+        var urlImage: String
+    )
+}

@@ -4,20 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-/*
-@JsonIgnoreProperties(ignoreUnknown=true)
-data class PictureOfEarthOnDateResponse(
-    @SerializedName("identifier")
-    val identifier: String,
-    @SerializedName("caption")
-    val caption: String,
-    @SerializedName("image")
-    val imageName: String,
-    @SerializedName("date")
-    val date: Date
-)
-*/
-
 @JsonIgnoreProperties(ignoreUnknown=true)
 data class PictureOfEarthOnDateResponse(
     @SerializedName("attitude_quaternions")
