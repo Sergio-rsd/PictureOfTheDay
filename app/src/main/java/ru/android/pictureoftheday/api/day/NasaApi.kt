@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.api
+package ru.android.pictureoftheday.api.day
 
 import retrofit2.http.GET
 import retrofit2.http.Query

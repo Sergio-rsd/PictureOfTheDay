@@ -1,15 +1,7 @@
-package ru.android.pictureoftheday
+package ru.android.pictureoftheday.ui
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import ru.android.pictureoftheday.ui.EarthFragment
-import ru.android.pictureoftheday.ui.MainFragment
-import ru.android.pictureoftheday.ui.SettingThemeFragment
+import ru.android.pictureoftheday.R
 
 class MainActivity : AppCompatActivity(R.layout.main_activity) {
 //class MainActivity : AppCompatActivity() {

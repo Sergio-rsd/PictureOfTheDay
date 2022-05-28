@@ -7,10 +7,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import ru.android.pictureoftheday.api.PictureOfTheDayResponse
-import ru.android.pictureoftheday.domain.NasaRepository
-import ru.android.pictureoftheday.util.NETWORK_ERROR
+import ru.android.pictureoftheday.api.day.PictureOfTheDayResponse
+import ru.android.pictureoftheday.domain.day.NasaRepository
 import java.io.IOException
+
+private const val NETWORK_ERROR = "Network error"
 
 class MainViewModel(private val repository: NasaRepository) : ViewModel() {
 

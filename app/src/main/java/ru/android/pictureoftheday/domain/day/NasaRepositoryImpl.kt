@@ -1,13 +1,14 @@
-package ru.android.pictureoftheday.domain
+package ru.android.pictureoftheday.domain.day
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.android.pictureoftheday.BuildConfig
-import ru.android.pictureoftheday.api.NasaApi
-import ru.android.pictureoftheday.api.PictureOfTheDayResponse
-import ru.android.pictureoftheday.util.BASE_URL
+import ru.android.pictureoftheday.api.day.NasaApi
+import ru.android.pictureoftheday.api.day.PictureOfTheDayResponse
+
+private const val BASE_URL = "https://api.nasa.gov/"
 
 class NasaRepositoryImpl : NasaRepository {
 
@@ -22,6 +23,9 @@ class NasaRepositoryImpl : NasaRepository {
         .build()
         .create(NasaApi::class.java)
 
-    override suspend fun pictureOfTheDay(date:String): PictureOfTheDayResponse = api.pictureOfTheDay(date,
-        BuildConfig.NASA_API_KEY)
+    override suspend fun pictureOfTheDay(date: String): PictureOfTheDayResponse =
+        api.pictureOfTheDay(
+            date,
+            BuildConfig.NASA_API_KEY
+        )
 }

@@ -21,15 +21,13 @@ import coil.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.MainFragmentBinding
-import ru.android.pictureoftheday.domain.NasaRepositoryImpl
+import ru.android.pictureoftheday.domain.day.NasaRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.util.hideKeyboard
 import ru.android.pictureoftheday.viewmodel.MainViewModel
 import ru.android.pictureoftheday.viewmodel.MainViewModelFactory
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
@@ -120,11 +118,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     checkDataFromRemoteSource(3)
                 }
             }
-        }
 
-        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
-            viewModel.loading.collect {
-                binding.progress.visibility = if (it) View.VISIBLE else View.GONE
+            viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
+                viewModel.loading.collect {
+                    binding.progress.visibility = if (it) View.VISIBLE else View.GONE
+        }
             }
         }
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {

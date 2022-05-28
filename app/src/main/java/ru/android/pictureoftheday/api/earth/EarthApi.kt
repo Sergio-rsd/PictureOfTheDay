@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.api
+package ru.android.pictureoftheday.api.earth
 
 import retrofit2.http.GET
 import retrofit2.http.Path

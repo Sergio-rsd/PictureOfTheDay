@@ -1,6 +1,5 @@
 package ru.android.pictureoftheday.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -9,13 +8,13 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import ru.android.pictureoftheday.BuildConfig
-import ru.android.pictureoftheday.api.PictureOfEarthResponse
-import ru.android.pictureoftheday.domain.EarthRepository
-import ru.android.pictureoftheday.util.BASE_URL_EARTH
-import ru.android.pictureoftheday.util.NETWORK_ERROR
-import ru.android.pictureoftheday.util.TAG
-import ru.android.pictureoftheday.util.URL_EARTH_IMAGE
+import ru.android.pictureoftheday.api.earth.PictureOfEarthResponse
+import ru.android.pictureoftheday.domain.earth.EarthRepository
 import java.io.IOException
+
+private const val BASE_URL_EARTH = "https://epic.gsfc.nasa.gov/"
+private const val URL_EARTH_IMAGE = "archive/natural/"
+private const val NETWORK_ERROR = "Network error"
 
 class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
 

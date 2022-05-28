@@ -1,16 +1,16 @@
-package ru.android.pictureoftheday.domain
+package ru.android.pictureoftheday.domain.earth
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.android.pictureoftheday.BuildConfig
-import ru.android.pictureoftheday.api.EarthApi
-import ru.android.pictureoftheday.api.PictureOfEarthResponse
-import ru.android.pictureoftheday.util.BASE_URL_EARTH
+import ru.android.pictureoftheday.api.earth.EarthApi
+import ru.android.pictureoftheday.api.earth.PictureOfEarthResponse
+
+private const val BASE_URL_EARTH = "https://epic.gsfc.nasa.gov/"
 
 class EarthRepositoryImpl : EarthRepository {
-
     private val api = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL_EARTH)

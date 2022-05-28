@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.api
+package ru.android.pictureoftheday.api.earth
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.google.gson.annotations.SerializedName

@@ -2,7 +2,6 @@ package ru.android.pictureoftheday.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +13,8 @@ import androidx.lifecycle.coroutineScope
 import coil.load
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.EarthFragmentBinding
-import ru.android.pictureoftheday.domain.EarthRepositoryImpl
+import ru.android.pictureoftheday.domain.earth.EarthRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
-import ru.android.pictureoftheday.util.TAG
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.viewmodel.EarthViewModel
