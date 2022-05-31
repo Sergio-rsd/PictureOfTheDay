@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.ui
+package ru.android.pictureoftheday.ui.day
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -172,7 +172,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 }
             }
         }
-
+/*
         binding.bottomAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.setting -> {
@@ -198,6 +198,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 else -> true
             }
         }
+        */
     }
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
@@ -220,4 +221,5 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private fun checkDataFromRemoteSource(dateMinus: Int) {
         viewModel.requestPictureOfTheDay(dateInformation(dateMinus))
     }
+
 }

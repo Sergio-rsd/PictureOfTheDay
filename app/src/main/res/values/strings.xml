@@ -21,4 +21,8 @@
     <string name="theme_universe">Тема - ВСЕЛЕННАЯ</string>
     <string name="theme_mars">Тема - МАРС</string>
     <string name="theme_moon">Тема - ЛУНА</string>
+    <string name="photo_of_the_day">Photo of the Day</string>
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="cosmos_day">CosmosDay</string>
 </resources>

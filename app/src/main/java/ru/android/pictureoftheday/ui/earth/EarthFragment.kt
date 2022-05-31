@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.ui
+package ru.android.pictureoftheday.ui.earth
 
 import android.content.Context
 import android.os.Bundle
@@ -8,17 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import coil.load
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.EarthFragmentBinding
-import ru.android.pictureoftheday.domain.earth.EarthRepositoryImpl
 import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
-import ru.android.pictureoftheday.viewmodel.EarthViewModel
-import ru.android.pictureoftheday.viewmodel.EarthViewModelFactory
+import ru.android.pictureoftheday.viewmodel.earth.EarthViewModel
 
 class EarthFragment : Fragment(R.layout.earth_fragment) {
 
@@ -26,15 +24,19 @@ class EarthFragment : Fragment(R.layout.earth_fragment) {
         fun newInstance() = EarthFragment()
     }
 
-    private val viewModel: EarthViewModel by viewModels {
-        EarthViewModelFactory(EarthRepositoryImpl())
-    }
+    /*
+
+        private val viewModel: EarthViewModel by viewModels {
+            EarthViewModelFactory(EarthRepositoryImpl())
+        }
+    */
+    private val viewModel: EarthViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
 //            checkDataFromRemoteSourceEarth(0)
-            checkDataFromRemoteSourceEarth(1)
+            checkDataFromRemoteSourceEarth(2)
         }
     }
 

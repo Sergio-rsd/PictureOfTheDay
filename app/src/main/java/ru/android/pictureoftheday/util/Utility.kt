@@ -85,3 +85,16 @@ fun monthDate(minusDate: Int): String {
 fun dayDate(minusDate: Int): String {
     return SimpleDateFormat("dd").format(dateChoice(minusDate))
 }
+// перевод даты из NASA в формат RUS
+fun dateRus(date: String): String {
+    val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+    val formatterHourInput = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    return formatter.format(formatterHourInput.parse(date) as Date).toString()
+}
+// TODO Как получить ID текущей темы - неверно, но сохраню. Реально текущую не определил. Надо еще покопать
+fun getCurrentTheme(currentActivity: FragmentActivity) {
+    val getThemeSaved = 20392812 // сохраненная тема в getSharedPreferences
+    val currentThemeStyle = getThemeSaved?.let { currentActivity.resources.getResourceTypeName(it) }
+    val currentNameTheme = getThemeSaved?.let { currentActivity.resources.getResourceName(it) }
+    val currentTheme = currentActivity.resources.getIdentifier(currentNameTheme, currentThemeStyle, currentActivity.packageName)
+}

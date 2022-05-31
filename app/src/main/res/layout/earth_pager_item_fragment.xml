@@ -8,22 +8,38 @@
     android:paddingEnd="@dimen/main_padding">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/caption_text"
-        android:layout_width="match_parent"
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Text"
-        android:textSize="18sp"
+        android:gravity="center"
+        android:textSize="@dimen/earth_photo_time_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="description" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/earth_date_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        style="?textAppearanceBodyMedium"
+        android:textSize="@dimen/earth_photo_time_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        tools:text="DATE" />
 
     <ImageView
-        android:id="@+id/imageEarth"
+        android:id="@+id/image_earth_on_time"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/caption_text" />
+        app:layout_constraintTop_toBottomOf="@+id/earth_date_photo"
+        />
 
     <ProgressBar
         android:id="@+id/progress"
@@ -35,5 +51,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

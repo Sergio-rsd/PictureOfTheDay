@@ -1,4 +1,4 @@
-package ru.android.pictureoftheday.ui
+package ru.android.pictureoftheday.ui.setting
 
 import android.content.Context
 import android.os.Bundle
@@ -53,6 +53,7 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
+                    activity?.recreate()
 
                 }
                 R.id.switch_universe -> {
@@ -60,19 +61,21 @@ class SettingThemeFragment : Fragment(R.layout.setting_theme_fragment) {
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
-
+                    activity?.recreate()
                 }
                 R.id.switch_mars -> {
                     savedTheme = R.style.Theme_PictureOfTheDay_Mars
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
+                    activity?.recreate()
                 }
                 R.id.switch_moon -> {
                     savedTheme = R.style.Theme_PictureOfTheDay_Moon
                     saveBottomChoice(checkedId)
                     saveThemeApp(savedTheme!!)
                     recreateFragment(this@SettingThemeFragment, requireActivity())
+                    activity?.recreate()
                 }
             }
         }

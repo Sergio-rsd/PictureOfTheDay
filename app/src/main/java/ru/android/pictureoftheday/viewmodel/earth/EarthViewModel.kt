@@ -1,7 +1,6 @@
-package ru.android.pictureoftheday.viewmodel
+package ru.android.pictureoftheday.viewmodel.earth
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -9,14 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import ru.android.pictureoftheday.BuildConfig
 import ru.android.pictureoftheday.api.earth.PictureOfEarthResponse
-import ru.android.pictureoftheday.domain.earth.EarthRepository
+import ru.android.pictureoftheday.domain.earth.EarthRepositoryImpl
 import java.io.IOException
 
 private const val BASE_URL_EARTH = "https://epic.gsfc.nasa.gov/"
 private const val URL_EARTH_IMAGE = "archive/natural/"
 private const val NETWORK_ERROR = "Network error"
 
-class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
+class EarthViewModel() : ViewModel() {
 
     private val _loading = MutableStateFlow(false)
     val loading: Flow<Boolean> = _loading
@@ -29,6 +28,8 @@ class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
     val dataResponseSourceOfEarth: MutableStateFlow<PictureOfEarthResponse?> =
         _dataResponseSourceOfEarth
 
+    private val repository: EarthRepositoryImpl = EarthRepositoryImpl()
+
     fun requestPictureOfEarth(date: String) {
 
         _loading.value = true
@@ -36,11 +37,9 @@ class EarthViewModel(private val repository: EarthRepository) : ViewModel() {
         viewModelScope.launch {
             try {
                 val listOfCondition: PictureOfEarthResponse = repository.pictureOfEarth(date)
-
-                for (arrayCondition in listOfCondition) {
-                    arrayCondition.urlImage = constructUrlImageEarth(date, arrayCondition.imageName)
+                listOfCondition.forEach {
+                    it.urlImage = constructUrlImageEarth(date, it.imageName)
                 }
-//                Log.d(TAG, "requestPictureOfEarth() called: $listOfCondition")
 
                 _dataResponseSourceOfEarth.emit(listOfCondition)
 
@@ -60,8 +59,4 @@ private fun constructUrlImageEarth(date: String, imageEarth: String): String {
     return StringBuilder()
         .append(BASE_URL_EARTH, URL_EARTH_IMAGE, searchUrl, BuildConfig.NASA_API_KEY)
         .toString()
-}
-
-class EarthViewModelFactory(private val repository: EarthRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T = EarthViewModel(repository) as T
 }

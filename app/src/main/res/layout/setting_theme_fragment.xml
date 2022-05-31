@@ -46,7 +46,7 @@
         </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+<!--
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -55,4 +55,5 @@
         android:backgroundTint="?attr/bottomAppBar"
         app:menu="@menu/menu_bottom_appbar"
         app:navigationIcon="@drawable/ic_menu_show" />
+    -->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
