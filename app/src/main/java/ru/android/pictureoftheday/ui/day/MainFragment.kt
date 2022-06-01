@@ -26,8 +26,8 @@ import ru.android.pictureoftheday.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.util.hideKeyboard
-import ru.android.pictureoftheday.viewmodel.MainViewModel
-import ru.android.pictureoftheday.viewmodel.MainViewModelFactory
+import ru.android.pictureoftheday.viewmodel.day.MainViewModel
+import ru.android.pictureoftheday.viewmodel.day.MainViewModelFactory
 
 class MainFragment : Fragment(R.layout.main_fragment) {
     private lateinit var behavior: BottomSheetBehavior<ConstraintLayout>
@@ -43,7 +43,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-//            checkDataFromRemoteSource(0)
             checkDataFromRemoteSource(0)
         }
     }
@@ -122,7 +121,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
                 viewModel.loading.collect {
                     binding.progress.visibility = if (it) View.VISIBLE else View.GONE
-        }
+                }
             }
         }
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
@@ -172,51 +171,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 }
             }
         }
-/*
-        binding.bottomAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.setting -> {
-                    requireActivity().supportFragmentManager.apply {
-                        beginTransaction()
-                            .replace(R.id.container, SettingThemeFragment.newInstance())
-                            .addToBackStack("")
-                            .commitAllowingStateLoss()
-                    }
-//                    recreateFragment(this@MainFragment, requireActivity())
-                    true
-                }
-                R.id.action -> {
-//                    Toast.makeText(context, "Action", Toast.LENGTH_LONG).show()
-                    requireActivity().supportFragmentManager.apply {
-                        beginTransaction()
-                            .replace(R.id.container, EarthFragment.newInstance())
-                            .addToBackStack("")
-                            .commitAllowingStateLoss()
-                    }
-                    true
-                }
-                else -> true
-            }
-        }
-        */
     }
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         behavior = BottomSheetBehavior.from(bottomSheet)
         behavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
-/*
 
-    @SuppressLint("SimpleDateFormat")
-    private fun dateInformation(minusDate: Int): String {
-        TimeZone.setDefault(TimeZone.getTimeZone(getString(R.string.google_time)))
-        val currentDate =
-            Calendar.getInstance(TimeZone.getTimeZone(getString(R.string.google_time)))
-        currentDate.add(Calendar.DATE, -minusDate)
-        val dateResult = currentDate.time
-        return SimpleDateFormat("yyyy-MM-dd").format(dateResult)
-    }
-*/
 
     private fun checkDataFromRemoteSource(dateMinus: Int) {
         viewModel.requestPictureOfTheDay(dateInformation(dateMinus))

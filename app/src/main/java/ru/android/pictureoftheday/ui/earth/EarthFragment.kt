@@ -24,12 +24,6 @@ class EarthFragment : Fragment(R.layout.earth_fragment) {
         fun newInstance() = EarthFragment()
     }
 
-    /*
-
-        private val viewModel: EarthViewModel by viewModels {
-            EarthViewModelFactory(EarthRepositoryImpl())
-        }
-    */
     private val viewModel: EarthViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,12 +65,8 @@ class EarthFragment : Fragment(R.layout.earth_fragment) {
             }
         }
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
-//            viewModel.dataResponseOfEarthOnDay.collect { dataEarthArray ->
             viewModel.dataResponseSourceOfEarth.collect { dataEarthArray ->
                 dataEarthArray?.let {
-//                    binding.captionText.text = it.listOfEarth[0].caption
-//                    Log.d(TAG, "PATH for IMAGE called ${it[0].urlImage}")
-//                    binding.captionText.text = it.listOfEarth[0]
 
                     binding.captionText.text = it[0].caption
                     binding.imageEarth.load(it[0].urlImage)

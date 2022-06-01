@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import ru.android.pictureoftheday.BuildConfig
 import ru.android.pictureoftheday.api.earth.PictureOfEarthResponse
 import ru.android.pictureoftheday.domain.earth.EarthRepositoryImpl
+import ru.android.pictureoftheday.util.dateInformation
 import java.io.IOException
 
 private const val BASE_URL_EARTH = "https://epic.gsfc.nasa.gov/"
@@ -36,9 +37,17 @@ class EarthViewModel() : ViewModel() {
 
         viewModelScope.launch {
             try {
-                val listOfCondition: PictureOfEarthResponse = repository.pictureOfEarth(date)
+                var listOfCondition: PictureOfEarthResponse? = null
+                var shiftDate = 0
+                var realDate = shiftDate
+
+                while (listOfCondition.toString() == "[]" || listOfCondition == null) {
+                    listOfCondition = repository.pictureOfEarth(dateInformation(shiftDate))
+                    realDate = shiftDate++
+                }
+
                 listOfCondition.forEach {
-                    it.urlImage = constructUrlImageEarth(date, it.imageName)
+                    it.urlImage = constructUrlImageEarth(dateInformation(realDate), it.imageName)
                 }
 
                 _dataResponseSourceOfEarth.emit(listOfCondition)

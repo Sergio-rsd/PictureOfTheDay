@@ -11,7 +11,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import ru.android.pictureoftheday.R
-import ru.android.pictureoftheday.databinding.EarthPagerFragmentBinding
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.viewmodel.earth.EarthViewModel
 import java.text.SimpleDateFormat
@@ -24,18 +23,17 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            // TODO решить с ответом null
-            checkDataFromRemoteSourceEarth(2)
+            checkDataFromRemoteSourceEarth(0)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = EarthPagerFragmentBinding.bind(view)
-
         val pager: ViewPager2 = view.findViewById(R.id.earth_view_pager)
         pager.adapter = PagerAdapter(this)
+//        pager.setPageTransformer(ZoomOutPageTransformer())
+        pager.setPageTransformer(DepthPageTransformer())
 
         val tabLayout: TabLayout = view.findViewById(R.id.earth_tab_layout)
         TabLayoutMediator(tabLayout, pager) { tab, position ->
@@ -49,7 +47,6 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
                 viewModel.dataResponseSourceOfEarth.collect { dataEarthArray ->
                     dataEarthArray?.let {
                         tab.text = timeOfPictureEarth(it[position].date)
-//                        Log.d(TAG, "Time = ${timeOfPictureEarth(it[position].date)}")
                     }
                 }
             }

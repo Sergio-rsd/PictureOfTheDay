@@ -17,13 +17,11 @@
         <item name="colorSurface">@color/design_default_color_surface</item>
         <item name="android:fontFamily">?attr/fontFamily</item>
         <item name="fontFamily">?attr/fontFamily</item>
-        <item name="android:forceDarkAllowed">true</item>
     </style>
 
     <style name="Theme.PictureOfTheDay.Universe">
         <item name="colorPrimary">@color/universe_primaryColor</item>
         <item name="colorPrimaryVariant">@color/universe_primaryDarkColor</item>
-        <!--        <item name="colorOnPrimary">@color/universe_secondaryLightColor</item>-->
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/universe_secondaryColor</item>
         <item name="colorSecondaryVariant">@color/universe_secondaryDarkColor</item>
