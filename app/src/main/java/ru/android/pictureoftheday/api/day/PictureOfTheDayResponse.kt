@@ -1,8 +1,10 @@
-package ru.android.pictureoftheday.api
+package ru.android.pictureoftheday.api.day
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class PictureOfTheDayResponse(
     @SerializedName("copyright")
     val copyright: String,

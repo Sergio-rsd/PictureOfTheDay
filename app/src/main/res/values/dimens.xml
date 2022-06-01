@@ -3,4 +3,12 @@
     <dimen name="main_padding">10dp</dimen>
     <dimen name="main_text_margin">10dp</dimen>
     <dimen name="radius_edit_text">15dp</dimen>
+    <dimen name="image_photo_margin">5dp</dimen>
+    <dimen name="hook_width">30dp</dimen>
+    <dimen name="hook_height">3dp</dimen>
+    <dimen name="hook_margin_top">5dp</dimen>
+    <dimen name="behavior_peek_height">100dp</dimen>
+    <dimen name="setting_fragment_padding">30dp</dimen>
+    <dimen name="earth_photo_time_description">18sp</dimen>
+
 </resources>
