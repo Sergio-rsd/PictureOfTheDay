@@ -9,4 +9,18 @@
         <item name="android:background">@color/bottom_sheet_line_color</item>
     </style>
 
+<!--    <style name="TextChipFont" parent="Widget.MaterialComponents.Chip.Filter">-->
+<!--    <style name="TextChipFont" parent="TextAppearance.MaterialComponents.Body2">-->
+<!--    <style name="TextChipFont" parent="TextAppearance.MaterialComponents.Chip">-->
+    <style name="TextChipFont" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/bona_nova</item>
+        <item name="android:fontFamily">@font/bona_nova</item>
+    </style>
+    <style name="TextChipFontFilter" parent="Widget.MaterialComponents.Chip.Filter">
+<!--        <item name="android:textAppearance">@style/TextChipFont</item>-->
+<!--        <item name="materialThemeOverlay">@style/TextChipFont</item>-->
+<!--        <item name="android:textAppearance">@style/TextChipFont</item>-->
+        <item name="fontFamily">@font/bona_nova</item>
+        <item name="android:fontFamily">@font/bona_nova</item>
+    </style>
 </resources>

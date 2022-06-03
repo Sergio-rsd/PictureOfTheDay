@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/backgroundMain"
-    >
+    android:background="?attr/backgroundMain">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingStart="@dimen/main_padding"
-            android:paddingEnd="@dimen/main_padding"
-            >
+            android:paddingEnd="@dimen/main_padding">
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/clear_text_button"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -73,8 +71,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/today" />
+                    android:text="@string/today"
 
+                    />
+                <!--android:textAppearance="@style/TextChipFont"-->
+                <!--style="?attr/textChipFontFamily"-->
+                <!--style="@style/TextChipFontFilter"-->
+                <!--style="?attr/textChipFontFamily"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:textAppearance="?attr/textChipFontFamily"-->
                 <com.google.android.material.chip.Chip
                     android:id="@+id/choice_yesterday"
                     style="@style/Widget.MaterialComponents.Chip.Filter"
@@ -200,16 +205,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--
+    <!--
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="?attr/bottomAppBar"
-        app:menu="@menu/menu_bottom_appbar"
-        app:navigationIcon="@drawable/ic_menu_show" />
--->
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="?attr/bottomAppBar"
+            app:menu="@menu/menu_bottom_appbar"
+            app:navigationIcon="@drawable/ic_menu_show" />
+    -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

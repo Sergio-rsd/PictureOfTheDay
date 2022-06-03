@@ -25,4 +25,5 @@
     <string name="earth">Earth</string>
     <string name="mars">Mars</string>
     <string name="cosmos_day">CosmosDay</string>
+    <string name="earth_photo">Earth photo</string>
 </resources>

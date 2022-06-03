@@ -16,6 +16,7 @@ import ru.android.pictureoftheday.viewmodel.earth.EarthViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
 
     private val viewModel: EarthViewModel by activityViewModels()
@@ -26,6 +27,7 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
             checkDataFromRemoteSourceEarth(0)
         }
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,7 +58,7 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
 
     class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return 12
+            return 17
         }
 
         override fun createFragment(position: Int): Fragment =

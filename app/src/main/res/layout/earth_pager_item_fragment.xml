@@ -7,39 +7,55 @@
     android:paddingStart="@dimen/main_padding"
     android:paddingEnd="@dimen/main_padding">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/earth_photo_time_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="description" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/earth_date_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textStyle="bold"
-        style="?textAppearanceBodyMedium"
-        android:textSize="@dimen/earth_photo_time_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        tools:text="DATE" />
-
-    <ImageView
-        android:id="@+id/image_earth_on_time"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/earth_date_photo"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/earth_photo_time_description"
+                app:layout_constraintBottom_toTopOf="@+id/earth_date_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="description" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/earth_date_photo"
+                style="?textAppearanceBodyMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/earth_photo_time_description"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/image_earth_on_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="DATE" />
+
+            <ImageView
+                android:id="@+id/image_earth_on_time"
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
+                android:contentDescription="@string/earth_photo"
+                android:scaleType="fitStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/earth_date_photo" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/progress"

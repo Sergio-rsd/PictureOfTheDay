@@ -17,6 +17,13 @@
         <item name="colorSurface">@color/design_default_color_surface</item>
         <item name="android:fontFamily">?attr/fontFamily</item>
         <item name="fontFamily">?attr/fontFamily</item>
+<!--        <item name="textChipFontFamily">?attr/chipStyle</item>-->
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Filter</item>
+<!--        <item name="textChipFontFamily">@style/Theme.PictureOfTheDay.Universe.TextChipFont</item>-->
+<!--        <item name="textChipFontFamily">@style/Widget.MaterialComponents.Chip.Filter</item>-->
+        <item name="textChipFontFamily">@style/TextChipFont</item>
+<!--        <item name="textAppearanceBody2">@style/Widget.MaterialComponents.Chip.Filter</item>-->
+
     </style>
 
     <style name="Theme.PictureOfTheDay.Universe">
@@ -31,6 +38,10 @@
         <item name="backgroundMain">@color/universe_background_main</item>
         <item name="colorSurface">@color/universe_secondaryColor</item>
         <item name="fontFamily">@font/bona_nova</item>
+        <item name="android:fontFamily">@font/bona_nova</item>
+
+        <item name="textChipFontFamily">@style/TextChipFontFilter</item>
+        <item name="chipStyle">@style/TextChipFontFilter</item>
     </style>
 
     <style name="Theme.PictureOfTheDay.Mars">
@@ -44,6 +55,8 @@
         <item name="bottomAppBar">@color/mars_primaryDarkColor</item>
         <item name="backgroundMain">@color/mars_background_main</item>
         <item name="colorSurface">@color/mars_secondaryLightColor</item>
+        <item name="textChipFontFamily">@style/Widget.MaterialComponents.Chip.Filter</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Filter</item>
     </style>
 
     <style name="Theme.PictureOfTheDay.Moon">
@@ -57,5 +70,7 @@
         <item name="bottomAppBar">@color/moon_primaryDarkColor</item>
         <item name="backgroundMain">@color/moon_background_main</item>
         <item name="colorSurface">@color/moon_background_main</item>
+        <item name="textChipFontFamily">@style/Widget.MaterialComponents.Chip.Filter</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Filter</item>
     </style>
 </resources>

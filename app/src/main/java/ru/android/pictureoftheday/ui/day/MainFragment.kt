@@ -61,7 +61,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
         val themedCurrent = getTheme?.let { ContextThemeWrapper(context, it) }
         return LayoutInflater.from(themedCurrent).inflate(R.layout.main_fragment, container, false)
-//        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -106,8 +105,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.choice_now -> {
-                    // TODO проверить на 404
-//                    checkDataFromRemoteSource(0)
                     checkDataFromRemoteSource(0)
                 }
                 R.id.choice_yesterday -> {
