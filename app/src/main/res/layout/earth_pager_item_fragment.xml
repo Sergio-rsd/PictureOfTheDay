@@ -46,14 +46,25 @@
             <ImageView
                 android:id="@+id/image_earth_on_time"
                 android:layout_width="wrap_content"
-                android:layout_height="500dp"
+                android:layout_height="@dimen/earth_image_height"
                 android:contentDescription="@string/earth_photo"
                 android:scaleType="fitStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/earth_date_photo" />
 
-
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back_stack_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_upward"
+                android:contentDescription="@string/earth_fab_backstack"
+                android:layout_marginBottom="@dimen/earth_margin_fab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_earth_on_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -67,4 +78,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

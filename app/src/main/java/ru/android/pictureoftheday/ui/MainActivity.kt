@@ -7,13 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.android.pictureoftheday.R
+import ru.android.pictureoftheday.ui.collapseearth.CollapseEarthFragment
 import ru.android.pictureoftheday.ui.day.MainFragment
 import ru.android.pictureoftheday.ui.earth.ViewEarthPagerFragment
 import ru.android.pictureoftheday.ui.setting.SettingThemeFragment
-import ru.android.pictureoftheday.util.IS_THEME_STATUS
-import ru.android.pictureoftheday.util.THEME_STATUS
+import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.ui.util.THEME_STATUS
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MyLogin ${this::class.java.simpleName} : ${this.hashCode()}"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_nav)
+
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.day_photo -> {
@@ -60,19 +64,26 @@ class MainActivity : AppCompatActivity() {
                         .commitNow()
                 }
                 R.id.earth -> {
-                    supportFragmentManager.beginTransaction()
+
+                    /*supportFragmentManager.beginTransaction()
                         .replace(R.id.container, ViewEarthPagerFragment())
                         .commit()
-
+                    */
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, CollapseEarthFragment())
+                        .commit()
                 }
 /*
+
                 R.id.mars -> {
-                    Toast.makeText(this, "Action", Toast.LENGTH_LONG).show()
+//                    Toast.makeText(this, "Action", Toast.LENGTH_LONG).show()
 
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.container,EarthFragment())
+                        .replace(R.id.container, CollapseEarthFragment())
                         .commit()
- */
+                }
+*/
+
             }
             true
         }

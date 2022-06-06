@@ -22,8 +22,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.MainFragmentBinding
 import ru.android.pictureoftheday.domain.day.NasaRepositoryImpl
-import ru.android.pictureoftheday.util.IS_THEME_STATUS
-import ru.android.pictureoftheday.util.THEME_STATUS
+import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.ui.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.util.hideKeyboard
 import ru.android.pictureoftheday.viewmodel.day.MainViewModel

@@ -3,6 +3,7 @@ package ru.android.pictureoftheday.ui.earth
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
@@ -19,15 +20,30 @@ import java.util.*
 
 class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
 
+    companion object {
+        private const val ARG_DATE = "ARG_DATE"
+        fun newInstance(date: String) = ViewEarthPagerFragment().apply {
+            arguments = bundleOf(ARG_DATE to date)
+        }
+    }
+
     private val viewModel: EarthViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val dateChoiceInput = arguments?.getString(ARG_DATE)
+
+/*
         if (savedInstanceState == null) {
             checkDataFromRemoteSourceEarth(0)
+        } else checkDataFromEarthOnDateChoice(dateChoiceInput!!)
+*/
+
+        if (savedInstanceState == null) {
+            checkDataFromEarthOnDateChoice(dateChoiceInput!!)
         }
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,7 +74,7 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
 
     class PagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return 17
+            return 10
         }
 
         override fun createFragment(position: Int): Fragment =
@@ -68,6 +84,10 @@ class ViewEarthPagerFragment : Fragment(R.layout.earth_pager_fragment) {
 
     private fun checkDataFromRemoteSourceEarth(dateMinus: Int) {
         viewModel.requestPictureOfEarth(dateInformation(dateMinus))
+    }
+
+    private fun checkDataFromEarthOnDateChoice(date: String) {
+        viewModel.requestPictureOfEarth(date)
     }
 
     private fun timeOfPictureEarth(dataTime: String): String {

@@ -48,5 +48,10 @@ class EarthPagerFragment : Fragment(R.layout.earth_pager_item_fragment) {
                 }
             }
         }
+        val backStackFab = binding.backStackFab
+        backStackFab.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .popBackStack()
+        }
     }
 }

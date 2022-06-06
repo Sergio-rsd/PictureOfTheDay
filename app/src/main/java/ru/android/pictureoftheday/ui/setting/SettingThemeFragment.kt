@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.SettingThemeFragmentBinding
-import ru.android.pictureoftheday.util.IS_THEME_STATUS
-import ru.android.pictureoftheday.util.THEME_STATUS
+import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.ui.util.THEME_STATUS
 import ru.android.pictureoftheday.util.recreateFragment
 
 private const val BOTTOM_CHOICE = "BOTTOM_CHOICE"

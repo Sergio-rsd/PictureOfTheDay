@@ -10,6 +10,7 @@ import ru.android.pictureoftheday.BuildConfig
 import ru.android.pictureoftheday.api.earth.PictureOfEarthResponse
 import ru.android.pictureoftheday.domain.earth.EarthRepositoryImpl
 import ru.android.pictureoftheday.util.dateInformation
+import ru.android.pictureoftheday.util.offsetDateDetection
 import java.io.IOException
 
 private const val BASE_URL_EARTH = "https://epic.gsfc.nasa.gov/"
@@ -42,12 +43,15 @@ class EarthViewModel() : ViewModel() {
                 var realDate = shiftDate
 
                 while (listOfCondition.toString() == "[]" || listOfCondition == null) {
-                    listOfCondition = repository.pictureOfEarth(dateInformation(shiftDate))
+//                    listOfCondition = repository.pictureOfEarth(dateInformation(shiftDate))
+                    listOfCondition =
+                        repository.pictureOfEarth(offsetDateDetection(date, shiftDate))
                     realDate = shiftDate++
                 }
 
                 listOfCondition.forEach {
-                    it.urlImage = constructUrlImageEarth(dateInformation(realDate), it.imageName)
+//                    it.urlImage = constructUrlImageEarth(dateInformation(realDate), it.imageName)
+                    it.urlImage = constructUrlImageEarth(offsetDateDetection(date,realDate), it.imageName)
                 }
 
                 _dataResponseSourceOfEarth.emit(listOfCondition)

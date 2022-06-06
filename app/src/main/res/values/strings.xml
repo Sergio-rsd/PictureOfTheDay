@@ -26,4 +26,6 @@
     <string name="mars">Mars</string>
     <string name="cosmos_day">CosmosDay</string>
     <string name="earth_photo">Earth photo</string>
+    <string name="choice_the_data">Choice the data</string>
+    <string name="earth_fab_backstack">Возврат к основному экрану выбора даты</string>
 </resources>

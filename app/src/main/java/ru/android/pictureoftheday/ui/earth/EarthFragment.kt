@@ -13,8 +13,8 @@ import androidx.lifecycle.coroutineScope
 import coil.load
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.databinding.EarthFragmentBinding
-import ru.android.pictureoftheday.util.IS_THEME_STATUS
-import ru.android.pictureoftheday.util.THEME_STATUS
+import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
+import ru.android.pictureoftheday.ui.util.THEME_STATUS
 import ru.android.pictureoftheday.util.dateInformation
 import ru.android.pictureoftheday.viewmodel.earth.EarthViewModel
 
