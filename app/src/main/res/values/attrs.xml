@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bottomAppBar" format="reference" />
+    <attr name="headerAppBar" format="reference" />
+    <attr name="backgroundMain" format="reference" />
+    <attr name="textChipFontFamily" format="reference" />
+</resources>
