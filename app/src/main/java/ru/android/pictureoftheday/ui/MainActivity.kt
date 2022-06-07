@@ -9,7 +9,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.ui.collapseearth.CollapseEarthFragment
 import ru.android.pictureoftheday.ui.day.MainFragment
-import ru.android.pictureoftheday.ui.earth.ViewEarthPagerFragment
 import ru.android.pictureoftheday.ui.setting.SettingThemeFragment
 import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.ui.util.THEME_STATUS
