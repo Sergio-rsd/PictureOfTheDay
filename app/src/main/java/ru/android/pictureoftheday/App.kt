@@ -8,7 +8,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         appInstance = this
-//        TAG = appInstance.TAG
         TAG = "Happy ${this::class.java.simpleName} : ${this.hashCode()}"
     }
 
