@@ -12,5 +12,6 @@
     <dimen name="earth_photo_time_description">18sp</dimen>
     <dimen name="earth_image_height">370dp</dimen>
     <dimen name="earth_margin_fab">10dp</dimen>
+    <dimen name="image_item_gallery">100dp</dimen>
 
 </resources>

@@ -7,7 +7,7 @@
     <item android:id="@+id/earth"
         android:icon="@drawable/ic_earth"
         android:title="@string/earth"/>
-    <!--<item android:id="@+id/mars"
-        android:icon="@drawable/ic_mars"
-        android:title="@string/mars"/>-->
+    <item android:id="@+id/gallery"
+        android:icon="@drawable/ic_gallery_cosmos"
+        android:title="@string/cosmos_gallery"/>
 </menu>

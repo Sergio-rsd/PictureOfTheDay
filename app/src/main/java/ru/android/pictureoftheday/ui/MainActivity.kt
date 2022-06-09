@@ -8,11 +8,13 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.android.pictureoftheday.R
 import ru.android.pictureoftheday.ui.collapseearth.CollapseEarthFragment
+import ru.android.pictureoftheday.ui.cosmosgallery.CosmosGalleryFragment
 import ru.android.pictureoftheday.ui.day.MainFragment
-import ru.android.pictureoftheday.ui.earth.ViewEarthPagerFragment
 import ru.android.pictureoftheday.ui.setting.SettingThemeFragment
+import ru.android.pictureoftheday.ui.util.DATE_IN_GALLERY
 import ru.android.pictureoftheday.ui.util.IS_THEME_STATUS
 import ru.android.pictureoftheday.ui.util.THEME_STATUS
+import ru.android.pictureoftheday.util.dateInformation
 
 class MainActivity : AppCompatActivity() {
 
@@ -73,16 +75,19 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.container, CollapseEarthFragment())
                         .commit()
                 }
-/*
 
-                R.id.mars -> {
+                R.id.gallery -> {
 //                    Toast.makeText(this, "Action", Toast.LENGTH_LONG).show()
+                    val startDate = dateInformation(DATE_IN_GALLERY)
+                    val endDate = dateInformation(0)
 
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, CollapseEarthFragment())
+                        .replace(
+                            R.id.container,
+                            CosmosGalleryFragment.newInstance(startDate, endDate)
+                        )
                         .commit()
                 }
-*/
 
             }
             true
